@@ -30,7 +30,7 @@ $msg = 'error';
 if(empty($username) || empty($password)){
   $msg = "All Fields are required";
 }else{
-  $sql = "select * from users where username = ? and password =sha1(?)";
+  $sql = "select * from users where username = ? and password =?";
   $result = getData($con,$sql,[$username,$password]);
   if(count($result) != 1){
     $msg = "Incorrect Password or Uesrname";

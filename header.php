@@ -91,7 +91,7 @@ if(!isset($_SESSION)){
       <div class="row">
         <div class="col-sm-12 ">
           <div class="col-sm-2 logo" style="text-align: left"></div>
-          <div class="col-sm-6" style="text-align: center;color: #FFFFFF"><h3>University of Babylon <br /> College of Engineering</h3></div>
+          <div class="col-sm-6" style="text-align: center;color: #FFFFFF"><h3>IMT Lucca<br />SySMA - Systems Security Modelling and Analysis</h3></div>
           <div class="col-sm-2 unilogo"></div>
           <div class="col-sm-2 logout">
           <?php if(!isset($_SESSION['login'])){

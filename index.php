@@ -255,7 +255,7 @@
             <label id="tht"></label>
         </div>
         <div class="col-sm-4">
-            <label id="systemconnection">Samart Hatchry System</label>
+            <label id="systemconnection">Smart Cooling & Heating System</label>
         </div>
         <div class="col-sm-4">
             <label id="thh"></label>
@@ -310,11 +310,11 @@
                 Low Humidity alarm <i class="fas fa-tint"></i></label>
                 <label class="alarmlightg" id="lowhumialarm"></label>
             </div>
-            <div class="col-md-12 alarm">
+<!--            <div class="col-md-12 alarm">
                 <label class="col-xs-10 alarmlabel">
                 Belt Status <i class="fas fa-bacon"></i></label>
                 <label class="alarmlightg" id="beltalarm"></label>
-            </div>
+            </div>-->
             <div class="col-md-12 alarm">
                 <label class="col-xs-10 alarmlabel">
                 Light Status <i class="far fa-lightbulb"></i></label>

@@ -46,31 +46,31 @@ if($msg == 1){
     $msg = "Temperature and Humidity recorded";
    }
    //------------------------------------------------
-   //moving old recorded data to a file
-     date_default_timezone_set('Asia/Baghdad');
-   $cerrntdatetime = date('Y-m-d H:i:s');
-   $sql = "select * from measurement where TIMESTAMPDIFF(HOUR,datetime,?) >= 1";
-   $result = getData($con,$sql,[$cerrntdatetime]);
-   //print_r($result);
-   $file ="oldrecord/".date('Y-m-d').'.txt';
-   $fh = fopen($file, 'a');
-   if($fh && count($result) > 0 ){
-      $content = file_get_contents($file);
-      $array1 = json_decode(preg_replace('/[\x00-\x1F\x80-\xFF]/','', $content), true);
-      //var_dump($content);
-      //var_dump($array1);
-      //var_dump($result);
-      if(!empty($array1)){
-      $merg = array_merge($array1,$result);
-      }else{
-        $merg = $result;
-      }
-      $newdata = json_encode($merg);
-      if(fwrite($fh,$newdata)){
-        $sql = "delete from measurement where TIMESTAMPDIFF(HOUR,datetime,?) >= 1";
-        $result = setData($con,$sql,[$cerrntdatetime]);
-      }
-   }
+//   //moving old recorded data to a file
+//     date_default_timezone_set('Asia/Baghdad');
+//   $cerrntdatetime = date('Y-m-d H:i:s');
+//   $sql = "select * from measurement where TIMESTAMPDIFF(HOUR,datetime,?) >= 1";
+//   $result = getData($con,$sql,[$cerrntdatetime]);
+//   //print_r($result);
+//   $file ="oldrecord/".date('Y-m-d').'.txt';
+//   $fh = fopen($file, 'a');
+//   if($fh && count($result) > 0 ){
+//      $content = file_get_contents($file);
+//      $array1 = json_decode(preg_replace('/[\x00-\x1F\x80-\xFF]/','', $content), true);
+//      //var_dump($content);
+//      //var_dump($array1);
+//      //var_dump($result);
+//      if(!empty($array1)){
+//      $merg = array_merge($array1,$result);
+//      }else{
+//        $merg = $result;
+//      }
+//      $newdata = json_encode($merg);
+//      if(fwrite($fh,$newdata)){
+//        $sql = "delete from measurement where TIMESTAMPDIFF(HOUR,datetime,?) >= 1";
+//        $result = setData($con,$sql,[$cerrntdatetime]);
+//      }
+//   }
    //----------------------------------------------------
    // update diveces status like the fan , belt and etc...
    $sql = "update control set status = ? where name=? and d_id=? and m_id=?";

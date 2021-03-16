@@ -22,9 +22,9 @@
         <div class="col-xs-4"></div>
         <div class="col-xs-4 center">
           <div class="copyrights" style="margin-top:25px;">
-              <p>Hussein Al-Kufaishy &copy; 2019, All Rights Reserved &reg;
+              <p>Zainab Alwaisi &copy; 2021, All Rights Reserved &reg;
                   <br>
-                  <span>Designed and Developed By: <b>_____</b></span>
+                  <span>Designed and Developed By: <b>Zainab Alwaisi</b></span>
               </p>
           </div>
         </div>

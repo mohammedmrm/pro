@@ -86,33 +86,33 @@ if($msg == 1){
    if(!empty($t2) && ($t2==0 || $t2>=1)){
     $r4 = setData($con,$sql,[$t2,'t2',$dev,$m]);
    }
-   if(!empty($t3)  && ($t3==0 || $t3==1)){
+   if(($t3==0 || $t3==1)){
     $r5 = setData($con,$sql,[$t3,'t3',$dev,$m]);
    }
-   if(!empty($t4) && ($t4==0 || $t4==1)){
+   if(($t4==0 || $t4==1)){
     $r6 = setData($con,$sql,[$t4,'t4',$dev,$m]);
    }
 
-   if(!empty($f) && ($f==0 || $f==1)){
+   if(($f==0 || $f==1)){
     $r7 = setData($con,$sql,[$f,'f',$dev,$m]);
    }
-   if(!empty($d) && ($d==0 || $d==1)){
+   if(($d==0 || $d==1)){
     $r8 = setData($con,$sql,[$d,'d',$dev,$m]);
    }
-   if(!empty($l) && ($l==0 || $l==1)){
+   if(($l==0 || $l==1)){
     $r9 = setData($con,$sql,[$l,'l',$dev,$m]);
    }
-   if(!empty($b) && ($b==0 || $b==1)){
+   if(($b==0 || $b==1)){
     $r10 = setData($con,$sql,[$b,'b',$dev,$m]);
    }
 
-   if(!empty($ss) && ($ss==0 || $ss==1)){
+   if(($ss==0 || $ss==1)){
     $r11 = setData($con,$sql,[$ss,'ss',$dev,$m]);
    }
-   if(!empty($sc) && ($sc==0 || $sc==1)){
+   if(($sc==0 || $sc==1)){
     $r12 = setData($con,$sql,[$sc,'sc',$dev,$m]);
    }
-   echo json_encode(['msg'=>$msg]);
+   echo json_encode(['msg'=>$msg,$r2,$r5,$r7]);
 }else{
   echo json_encode(['msg'=>$msg]);
 }

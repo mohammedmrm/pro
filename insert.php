@@ -46,44 +46,44 @@ if($msg == 1){
     $msg = "Temperature and Humidity recorded";
    }
    //------------------------------------------------
-//   //moving old recorded data to a file
-//     date_default_timezone_set('Asia/Baghdad');
-//   $cerrntdatetime = date('Y-m-d H:i:s');
-//   $sql = "select * from measurement where TIMESTAMPDIFF(HOUR,datetime,?) >= 1";
-//   $result = getData($con,$sql,[$cerrntdatetime]);
-//   //print_r($result);
-//   $file ="oldrecord/".date('Y-m-d').'.txt';
-//   $fh = fopen($file, 'a');
-//   if($fh && count($result) > 0 ){
-//      $content = file_get_contents($file);
-//      $array1 = json_decode(preg_replace('/[\x00-\x1F\x80-\xFF]/','', $content), true);
-//      //var_dump($content);
-//      //var_dump($array1);
-//      //var_dump($result);
-//      if(!empty($array1)){
-//      $merg = array_merge($array1,$result);
-//      }else{
-//        $merg = $result;
-//      }
-//      $newdata = json_encode($merg);
-//      if(fwrite($fh,$newdata)){
-//        $sql = "delete from measurement where TIMESTAMPDIFF(HOUR,datetime,?) >= 1";
-//        $result = setData($con,$sql,[$cerrntdatetime]);
-//      }
-//   }
+   //moving old recorded data to a file
+     date_default_timezone_set('Asia/Baghdad');
+   $cerrntdatetime = date('Y-m-d H:i:s');
+   $sql = "select * from measurement where TIMESTAMPDIFF(HOUR,datetime,?) >= 1";
+   $result = getData($con,$sql,[$cerrntdatetime]);
+   //print_r($result);
+   $file ="oldrecord/".date('Y-m-d').'.txt';
+   $fh = fopen($file, 'a');
+   if($fh && count($result) > 0 ){
+      $content = file_get_contents($file);
+      $array1 = json_decode(preg_replace('/[\x00-\x1F\x80-\xFF]/','', $content), true);
+      //var_dump($content);
+      //var_dump($array1);
+      //var_dump($result);
+      if(!empty($array1)){
+      $merg = array_merge($array1,$result);
+      }else{
+        $merg = $result;
+      }
+      $newdata = json_encode($merg);
+      if(fwrite($fh,$newdata)){
+        $sql = "delete from measurement where TIMESTAMPDIFF(HOUR,datetime,?) >= 1";
+        $result = setData($con,$sql,[$cerrntdatetime]);
+      }
+   }
    //----------------------------------------------------
    // update diveces status like the fan , belt and etc...
    $sql = "update control set status = ? where name=? and d_id=? and m_id=?";
-   if(!empty($h2) && ($h2==0 || $h2>=1)){
+   if(($h2==0 || $h2>=1)){
     $r1 = setData($con,$sql,[$h2,'h2',$dev,$m]);
    }
-   if(!empty($h3) && ($h3==0 || $h3==1)){
+   if(($h3==0 || $h3==1)){
      $r2 = setData($con,$sql,[$h3,'h3',$dev,$m]);
    }
-   if(!empty($h4) && ($h4==0 || $h4==1)){
+   if(($h4==0 || $h4==1)){
     $r3 = setData($con,$sql,[$h4,'h4',$dev,$m]);
    }
-   if(!empty($t2) && ($t2==0 || $t2>=1)){
+   if(($t2==0 || $t2>=1)){
     $r4 = setData($con,$sql,[$t2,'t2',$dev,$m]);
    }
    if(($t3==0 || $t3==1)){
@@ -112,7 +112,7 @@ if($msg == 1){
    if(($sc==0 || $sc==1)){
     $r12 = setData($con,$sql,[$sc,'sc',$dev,$m]);
    }
-   echo json_encode(['msg'=>$msg,$r2,$r5,$r7]);
+   echo json_encode(['msg'=>$msg]);
 }else{
   echo json_encode(['msg'=>$msg]);
 }
